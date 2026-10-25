@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 type Slot = {
   id: string;
   slot_date: string;
@@ -29,7 +31,7 @@ function App() {
   try {
     setLoading(true);
 
-    const response = await fetch("http://localhost:3001/api/slots");
+    const response = await fetch(`${API_URL}/api/slots`);
 
     if (!response.ok) {
       throw new Error("Failed to load slots");
@@ -63,7 +65,7 @@ const handleCreateSlot = async (
   try {
     setCreating(true);
 
-    const response = await fetch("http://localhost:3001/api/slots", {
+    const response = await fetch(`${API_URL}/api/slots`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -120,7 +122,7 @@ const handleBookSlot = async (
     setBooking(true);
 
     const response = await fetch(
-      `http://localhost:3001/api/slots/${selectedSlot.id}/book`,
+      `${API_URL}/api/slots/${selectedSlot.id}/book`,
       {
         method: "POST",
         headers: {
@@ -153,7 +155,7 @@ const handleBookSlot = async (
     // Ask Gemini for a nicer confirmation
     try {
       const aiResponse = await fetch(
-        "http://localhost:3001/api/ai/confirmation",
+        `${API_URL}/api/ai/confirmation`,
         {
           method: "POST",
           headers: {
