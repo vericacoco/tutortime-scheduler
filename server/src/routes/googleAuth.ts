@@ -47,7 +47,7 @@ router.get("/callback", async (req, res) => {
       console.log("Refresh Token Received");
     }
 
-    return res.redirect("http://localhost:5173?calendar=connected");
+    return res.redirect(`${process.env.FRONTEND_URL}?calendar=connected`);
   } catch (error) {
     console.error("Google OAuth error:", error);
 
