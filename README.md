@@ -5,6 +5,11 @@ TutorTime is a simple scheduling application for private lessons.
 A tutor can publish available lesson slots, and students can book
 an available time using their name and email.
 
+## Links
+
+- Live App: https://tutortime-scheduler-2uiwylcvd-verica.vercel.app
+- GitHub Repository: https://github.com/USERNAME/teamlift-tutortime
+
 ## Features
 
 - Create lesson availability with date, start time, and duration
